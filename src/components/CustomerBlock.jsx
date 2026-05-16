@@ -7,7 +7,7 @@ export default function CustomerBlock({
   updateCustomer,
   saveCurrentOrder,
   openHistory,
-  generatePdf,
+  clearCustomer,
 }) {
   return (
     <section className="card customer-card">
@@ -50,12 +50,12 @@ export default function CustomerBlock({
           Сохранить заказ
         </button>
 
-        <button className="copy-btn" onClick={generatePdf}>
-          PDF КП
-        </button>
-
         <button className="copy-btn" onClick={openHistory}>
           История заказов
+        </button>
+
+        <button className="clear-customer-btn" onClick={clearCustomer}>
+          Очистить поля
         </button>
       </div>
     </section>

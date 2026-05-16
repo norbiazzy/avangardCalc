@@ -7,7 +7,6 @@ export default function OrderHistory({
   onLoadOrder,
   onRepeatOrder,
   onDeleteOrder,
-  onGeneratePdf,
   onClearHistory,
 }) {
   if (!isOpen) return null;
@@ -51,7 +50,6 @@ export default function OrderHistory({
               <div className="history-actions">
                 <button onClick={() => onLoadOrder(order)}>Открыть</button>
                 <button onClick={() => onRepeatOrder(order)}>Повторить</button>
-                <button onClick={() => onGeneratePdf(order)}>PDF</button>
                 <button className="danger" onClick={() => onDeleteOrder(order.id)}>Удалить</button>
               </div>
             </article>

@@ -9,7 +9,6 @@ import Cart from "./Cart";
 import LintelModal from "./LintelModal";
 import CeramicSelector from "./CeramicSelector";
 import Toast from "./Toast";
-import ThemeSwitcher from "./ThemeSwitcher";
 import CustomerBlock from "./CustomerBlock";
 import OrderHistory from "./OrderHistory";
 import SegmentedButtons from "./SegmentedButtons";
@@ -26,7 +25,6 @@ import {
   deleteOrderFromHistory,
   clearOrderHistory,
 } from "../utils/orderHistory";
-import { generateCommercialOfferPdf } from "../utils/commercialOfferPdf";
 import { getBlockPrice } from "../data/blockPrices";
 
 const STORAGE_KEY = "bonolit-minimal-calculator-state";
@@ -102,7 +100,7 @@ export default function Calculator() {
   });
 
   const {
-    theme,
+    
     productType,
     product,
     glue,
@@ -158,15 +156,17 @@ export default function Calculator() {
       productType: value,
     }));
   }
-
-
-  function setThemeValue(themeValue) {
-    localStorage.setItem("app-theme", themeValue);
-
+  function clearCustomer() {
     setState((prev) => ({
       ...prev,
-      theme: themeValue,
+      customer: {
+        clientName: "",
+        clientPhone: "",
+        address: "",
+      },
     }));
+
+    showToast("Поля клиента очищены");
   }
 
   function updateCustomer(field, value) {
@@ -188,6 +188,10 @@ export default function Calculator() {
     const date = new Date();
     const number = String(date.getTime()).slice(-6);
 
+    const deliveryItemsSnapshot = getDeliveryItems(delivery);
+    const deliveryTotalSnapshot = calculateDeliveryTotal(delivery);
+    const goodsTotalSnapshot = cart.reduce((sum, item) => sum + Number(item.total || 0), 0);
+
     return {
       id: String(date.getTime()),
       number,
@@ -196,12 +200,12 @@ export default function Calculator() {
       clientName: customer.clientName || "",
       clientPhone: customer.clientPhone || "",
       address: customer.address || "",
-      cart,
-      delivery,
-      deliveryItems,
-      goodsTotal: getGoodsTotal(),
-      deliveryTotal,
-      total,
+      cart: [...cart],
+      delivery: { ...delivery },
+      deliveryItems: deliveryItemsSnapshot,
+      goodsTotal: goodsTotalSnapshot,
+      deliveryTotal: deliveryTotalSnapshot,
+      total: goodsTotalSnapshot + deliveryTotalSnapshot,
       productType,
       status: "Сохранен",
     };
@@ -228,10 +232,11 @@ export default function Calculator() {
     setState((prev) => ({
       ...prev,
       cart: order.cart || [],
-      delivery: order.delivery || prev.delivery,
+      delivery: {
+        ...prev.delivery,
+        ...(order.delivery || {}),
+      },
       customer: {
-        ...DEFAULT_CUSTOMER,
-        ...(order.customer || {}),
         clientName: order.customer?.clientName || order.clientName || "",
         clientPhone: order.customer?.clientPhone || order.clientPhone || "",
         address: order.customer?.address || order.address || "",
@@ -277,16 +282,6 @@ export default function Calculator() {
     showToast("История очищена");
   }
 
-  function generatePdfForCurrentOrder() {
-    if (!cart.length && !deliveryItems.length) {
-      showToast("Добавьте позиции в заказ", "error");
-      return;
-    }
-
-    generateCommercialOfferPdf(createOrderSnapshot());
-    showToast("PDF КП сформирован");
-  }
-
   function updateProductParam(field, value) {
     setState((prev) => {
       let draft = {
@@ -298,13 +293,31 @@ export default function Calculator() {
 
       const matchedBlock = findClosestBlock(draft);
       const recalculated = calculateByM3(draft.m3, matchedBlock);
-      const pricePerM3 = getBlockPrice({
+
+      const autoPrice = getBlockPrice({
         manufacturerKey: matchedBlock.manufacturerKey,
         factory: matchedBlock.factory,
         density: matchedBlock.density,
         strength: matchedBlock.strength,
         width: matchedBlock.width,
       });
+
+      const productFields = [
+        "manufacturerKey",
+        "factory",
+        "density",
+        "strength",
+        "length",
+        "width",
+        "height",
+      ];
+
+      const nextPricePerM3 =
+        field === "pricePerM3"
+          ? value
+          : productFields.includes(field)
+            ? autoPrice
+            : draft.pricePerM3;
 
       return {
         ...prev,
@@ -314,7 +327,7 @@ export default function Calculator() {
           strength: matchedBlock.strength,
           factory: matchedBlock.factory,
           percent: draft.percent,
-          pricePerM3,
+          pricePerM3: nextPricePerM3,
           ...recalculated,
         },
       };
@@ -512,6 +525,15 @@ export default function Calculator() {
     showToast("Керамика добавлена");
   }
 
+  function addUBlockToCart(item) {
+    setState((prev) => ({
+      ...prev,
+      cart: [...prev.cart, item],
+    }));
+
+    showToast("U-блок добавлен");
+  }
+
   function addLintelToCart(item) {
     setState((prev) => ({
       ...prev,
@@ -548,6 +570,10 @@ export default function Calculator() {
           ].join("\n");
         }
 
+        if (item.type === "ublock") {
+          return `${item.title}\n${item.qty} шт * ${formatNumber(item.finalPrice)} ₽ - ${formatNumber(item.total)} ₽`;
+        }
+
         if (item.type === "lintel") {
           return `${item.title}\n${item.qty} шт × ${formatNumber(item.finalPrice)} ₽ = ${formatNumber(item.total)} ₽`;
         }
@@ -574,6 +600,10 @@ export default function Calculator() {
           return `${item.shortTitle} — ${item.qty} шт — ${formatM3(item.m3)} м3 — ${formatNumber(item.total)} ₽`;
         }
 
+        if (item.type === "ublock") {
+          return `${item.title} - ${item.qty} шт * ${formatNumber(item.finalPrice)} ₽ - ${formatNumber(item.total)} ₽`;
+        }
+
         if (item.type === "lintel") {
           return `${item.shortTitle} - ${item.qty} шт × ${formatNumber(item.finalPrice)} ₽ = ${formatNumber(item.total)} ₽`;
         }
@@ -597,13 +627,18 @@ export default function Calculator() {
   }
 
   return (
-    <main className={`app theme-${theme}`}>
+    <main className="app theme-classic">
       <div className="calculator-column">
-        <ThemeSwitcher
-          theme={theme}
-          setTheme={setThemeValue}
+<CustomerBlock
+          customer={customer}
+          updateCustomer={updateCustomer}
+          saveCurrentOrder={saveCurrentOrder}
+          openHistory={() =>
+            setState((prev) => ({ ...prev, isHistoryOpen: true }))
+          }
+          clearCustomer={clearCustomer}
         />
-        <SegmentedButtons
+<SegmentedButtons
           options={["Блок", "Керамика", "Другой"]}
           value={productType === "block" ? "Блок" : productType === "ceramic" ? "Керамика" : "Другой"}
           onChange={(value) => {
@@ -613,15 +648,7 @@ export default function Calculator() {
           }}
         />
 
-        <CustomerBlock
-          customer={customer}
-          updateCustomer={updateCustomer}
-          saveCurrentOrder={saveCurrentOrder}
-          generatePdf={generatePdfForCurrentOrder}
-          openHistory={() =>
-            setState((prev) => ({ ...prev, isHistoryOpen: true }))
-          }
-        />
+        
 
         {productType === "block" ? (
           <>
@@ -692,10 +719,6 @@ export default function Calculator() {
         onLoadOrder={loadOrder}
         onRepeatOrder={repeatOrder}
         onDeleteOrder={deleteHistoryOrder}
-        onGeneratePdf={(order) => {
-          generateCommercialOfferPdf(order);
-          showToast("PDF КП сформирован");
-        }}
         onClearHistory={clearHistory}
       />
 
@@ -707,6 +730,7 @@ export default function Calculator() {
           setState((prev) => ({ ...prev, isLintelModalOpen: false }))
         }
         onAddLintel={addLintelToCart}
+        onAddUBlock={addUBlockToCart}
         showToast={showToast}
       />
     </main>

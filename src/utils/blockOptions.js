@@ -11,6 +11,10 @@ function sortValues(values, field, product = {}) {
     return values.sort((a, b) => order.indexOf(a) - order.indexOf(b));
   }
 
+  if (field === "width" || field === "height") {
+    return values.sort((a, b) => Number(b) - Number(a));
+  }
+
   return values.sort((a, b) => Number(a) - Number(b));
 }
 

@@ -1723,3 +1723,1061 @@ input {
     font-size: 12px;
   }
 }
+
+
+.manual-percent-control {
+  grid-template-columns: 48px 1fr 48px;
+}
+
+.percent-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  background: #fff;
+  color: var(--black);
+}
+
+.customer-actions {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 980px) {
+  .manual-percent-control {
+    grid-template-columns: 34px 1fr 34px;
+  }
+
+  .percent-input {
+    font-size: 14px;
+  }
+}
+
+
+/* Contrast + mobile performance + no horizontal scroll */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.theme-btn,
+.segmented button,
+.width-btn,
+.add-main,
+.copy-btn,
+.clear-btn,
+.percent-btn,
+.quick-discount,
+.cart-item button,
+.delivery-minus,
+.delivery-plus,
+.glue-row button,
+.lintel-add-main,
+.lintel-item,
+.ceramic-item {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+button:active,
+.theme-btn:active,
+.segmented button:active,
+.width-btn:active,
+.add-main:active,
+.copy-btn:active,
+.clear-btn:active,
+.percent-btn:active,
+.quick-discount:active,
+.cart-item button:active,
+.delivery-minus:active,
+.delivery-plus:active,
+.glue-row button:active,
+.lintel-add-main:active,
+.lintel-item:active,
+.ceramic-item:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* Stronger text contrast in non-classic themes */
+
+.theme-dark {
+  --text: #ffffff;
+  --muted: #d6e4ff;
+  --card: #0f172a;
+  --line: #93c5fd;
+}
+
+.theme-dark,
+.theme-dark .card,
+.theme-dark .history-item,
+.theme-dark .copy-summary,
+.theme-dark input,
+.theme-dark .ceramic-item,
+.theme-dark .ceramic-sub-card,
+.theme-dark .history-empty,
+.theme-dark .selected-line,
+.theme-dark .total-line,
+.theme-dark .delivery-new-title,
+.theme-dark .delivery-currency,
+.theme-dark .glue-name,
+.theme-dark .currency,
+.theme-dark .cart-item,
+.theme-dark .lintel-item {
+  color: #ffffff !important;
+}
+
+.theme-dark small,
+.theme-dark .cart-item small,
+.theme-dark .history-header small,
+.theme-dark .history-item small,
+.theme-dark .copy-summary span,
+.theme-dark .selected-line,
+.theme-dark label {
+  color: #dbeafe !important;
+}
+
+.theme-dark input,
+.theme-dark .percent-input {
+  background: #020617 !important;
+  color: #ffffff !important;
+}
+
+.theme-dark .segmented button,
+.theme-dark .width-btn,
+.theme-dark .quick-discount {
+  color: #ffffff;
+  background: #1e293b;
+}
+
+.theme-dark .segmented button.active,
+.theme-dark .width-btn.active,
+.theme-dark .quick-discount.active {
+  background: #60a5fa;
+  color: #020617;
+}
+
+.theme-luxury {
+  --text: #fff4c2;
+  --muted: #f8dfa0;
+  --card: #090909;
+  --line: #f4d06f;
+}
+
+.theme-luxury,
+.theme-luxury .card,
+.theme-luxury .history-item,
+.theme-luxury .copy-summary,
+.theme-luxury input,
+.theme-luxury .ceramic-item,
+.theme-luxury .ceramic-sub-card,
+.theme-luxury .history-empty,
+.theme-luxury .selected-line,
+.theme-luxury .total-line,
+.theme-luxury .delivery-new-title,
+.theme-luxury .delivery-currency,
+.theme-luxury .glue-name,
+.theme-luxury .currency,
+.theme-luxury .cart-item,
+.theme-luxury .lintel-item {
+  color: #fff4c2 !important;
+}
+
+.theme-luxury small,
+.theme-luxury .cart-item small,
+.theme-luxury .history-header small,
+.theme-luxury .history-item small,
+.theme-luxury .copy-summary span,
+.theme-luxury label {
+  color: #f8dfa0 !important;
+}
+
+.theme-luxury input,
+.theme-luxury .percent-input {
+  background: #050505 !important;
+  color: #fff4c2 !important;
+}
+
+.theme-luxury .segmented button,
+.theme-luxury .width-btn,
+.theme-luxury .quick-discount {
+  color: #fff4c2;
+  background: #111111;
+}
+
+.theme-luxury .segmented button.active,
+.theme-luxury .width-btn.active,
+.theme-luxury .quick-discount.active {
+  background: #f4d06f;
+  color: #050505;
+}
+
+.theme-blueprint {
+  --text: #ffffff;
+  --muted: #dbeafe;
+  --card: #0b2f5f;
+  --line: #bfdbfe;
+}
+
+.theme-blueprint,
+.theme-blueprint .card,
+.theme-blueprint .history-item,
+.theme-blueprint .copy-summary,
+.theme-blueprint input,
+.theme-blueprint .ceramic-item,
+.theme-blueprint .ceramic-sub-card,
+.theme-blueprint .history-empty,
+.theme-blueprint .selected-line,
+.theme-blueprint .total-line,
+.theme-blueprint .delivery-new-title,
+.theme-blueprint .delivery-currency,
+.theme-blueprint .glue-name,
+.theme-blueprint .currency,
+.theme-blueprint .cart-item,
+.theme-blueprint .lintel-item {
+  color: #ffffff !important;
+}
+
+.theme-blueprint small,
+.theme-blueprint .cart-item small,
+.theme-blueprint .history-header small,
+.theme-blueprint .history-item small,
+.theme-blueprint .copy-summary span,
+.theme-blueprint label {
+  color: #dbeafe !important;
+}
+
+.theme-blueprint input,
+.theme-blueprint .percent-input {
+  background: #061a33 !important;
+  color: #ffffff !important;
+}
+
+.theme-blueprint .segmented button,
+.theme-blueprint .width-btn,
+.theme-blueprint .quick-discount {
+  color: #ffffff;
+  background: #123e73;
+}
+
+.theme-blueprint .segmented button.active,
+.theme-blueprint .width-btn.active,
+.theme-blueprint .quick-discount.active {
+  background: #bfdbfe;
+  color: #061a33;
+}
+
+/* Prevent overflow on mobile */
+
+@media (max-width: 980px) {
+  .app {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .calculator-column,
+  .right-column,
+  .card,
+  .cart-card,
+  .customer-card,
+  .ceramic-card,
+  .delivery-new-card,
+  .history-panel,
+  .drawer-sheet {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .segmented,
+  .width-grid,
+  .inline-inputs,
+  .delivery-new-row,
+  .glue-row,
+  .cart-item,
+  .history-item,
+  .lintel-item,
+  .ceramic-item,
+  .copy-summary,
+  .total-line {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .segmented {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .segmented button,
+  .width-btn,
+  .quick-discount,
+  .theme-btn {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .width-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .delivery-new-row {
+    grid-template-columns: minmax(0, 1.1fr) 30px 38px 30px minmax(42px, 0.7fr) 30px;
+  }
+
+  .glue-row {
+    grid-template-columns: minmax(0, 1.05fr) minmax(38px, 0.55fr) 24px minmax(42px, 0.65fr) 36px;
+  }
+
+  .inline-inputs.three,
+  .inline-inputs.price-line {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  input {
+    min-width: 0;
+  }
+
+  .drawer-backdrop,
+  .history-backdrop {
+    overflow-x: hidden;
+  }
+
+  .drawer-sheet,
+  .history-panel {
+    width: calc(100vw - 12px);
+  }
+
+  .lintel-result {
+    overflow-wrap: anywhere;
+  }
+
+  .cart-item {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .app {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .theme-switcher {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3px;
+  }
+
+  .theme-btn {
+    font-size: 10px;
+    padding: 7px 2px;
+  }
+
+  .segmented button {
+    font-size: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .width-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .delivery-new-title {
+    font-size: 9px;
+  }
+
+  .glue-name {
+    font-size: 10px;
+  }
+
+  .cart-card {
+    overflow-x: hidden;
+  }
+}
+
+
+/* V2: mobile overflow corner + modal scroll lock + stronger contrast */
+
+body.modal-open {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}
+
+/* Лиловый уголок больше не раздувает ширину карточек */
+.card {
+  overflow: hidden !important;
+  clip-path: inset(0);
+}
+
+.card::before {
+  pointer-events: none;
+  max-width: 46px;
+  max-height: 46px;
+}
+
+@media (max-width: 980px) {
+  .card::before {
+    width: 34px !important;
+    height: 34px !important;
+    right: -17px !important;
+    top: -17px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  html,
+  body,
+  #root,
+  .app {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .app {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  .card {
+    width: calc(100vw - 8px) !important;
+    max-width: calc(100vw - 8px) !important;
+    overflow: hidden !important;
+  }
+
+  .cart-card,
+  .customer-card,
+  .ceramic-card,
+  .delivery-new-card {
+    width: calc(100vw - 8px) !important;
+    max-width: calc(100vw - 8px) !important;
+  }
+}
+
+/* Читаемость: темные поля в темах больше не оставляют белый/бледный текст на белом фоне */
+
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark .percent-input,
+.theme-dark .glue-row input,
+.theme-dark .delivery-qty,
+.theme-dark .delivery-price,
+.theme-dark .inline-inputs input,
+.theme-dark .lintel-search {
+  background: #020617 !important;
+  color: #ffffff !important;
+  border-color: #93c5fd !important;
+  opacity: 1 !important;
+}
+
+.theme-dark input::placeholder,
+.theme-dark textarea::placeholder {
+  color: #e0f2fe !important;
+  opacity: 1 !important;
+}
+
+.theme-dark .cart-item,
+.theme-dark .delivery-cart-item,
+.theme-dark .copy-summary,
+.theme-dark .total-line,
+.theme-dark .selected-line,
+.theme-dark .history-item,
+.theme-dark .lintel-result,
+.theme-dark .lintel-item,
+.theme-dark .ceramic-item,
+.theme-dark .ceramic-info-line span {
+  background: #020617 !important;
+  color: #ffffff !important;
+  border-color: #93c5fd !important;
+}
+
+.theme-dark .cart-item *,
+.theme-dark .copy-summary *,
+.theme-dark .total-line *,
+.theme-dark .selected-line *,
+.theme-dark .delivery-new-row *,
+.theme-dark .glue-row *,
+.theme-dark .history-item *,
+.theme-dark .lintel-result *,
+.theme-dark .ceramic-item * {
+  color: #ffffff !important;
+}
+
+.theme-luxury input,
+.theme-luxury textarea,
+.theme-luxury .percent-input,
+.theme-luxury .glue-row input,
+.theme-luxury .delivery-qty,
+.theme-luxury .delivery-price,
+.theme-luxury .inline-inputs input,
+.theme-luxury .lintel-search {
+  background: #000000 !important;
+  color: #fff8d6 !important;
+  border-color: #ffd76a !important;
+  opacity: 1 !important;
+}
+
+.theme-luxury input::placeholder,
+.theme-luxury textarea::placeholder {
+  color: #fff1a8 !important;
+  opacity: 1 !important;
+}
+
+.theme-luxury .cart-item,
+.theme-luxury .delivery-cart-item,
+.theme-luxury .copy-summary,
+.theme-luxury .total-line,
+.theme-luxury .selected-line,
+.theme-luxury .history-item,
+.theme-luxury .lintel-result,
+.theme-luxury .lintel-item,
+.theme-luxury .ceramic-item,
+.theme-luxury .ceramic-info-line span {
+  background: #000000 !important;
+  color: #fff8d6 !important;
+  border-color: #ffd76a !important;
+}
+
+.theme-luxury .cart-item *,
+.theme-luxury .copy-summary *,
+.theme-luxury .total-line *,
+.theme-luxury .selected-line *,
+.theme-luxury .delivery-new-row *,
+.theme-luxury .glue-row *,
+.theme-luxury .history-item *,
+.theme-luxury .lintel-result *,
+.theme-luxury .ceramic-item * {
+  color: #fff8d6 !important;
+}
+
+.theme-luxury .copy-btn,
+.theme-luxury .add-main,
+.theme-luxury .glue-row button,
+.theme-luxury .delivery-plus,
+.theme-luxury .percent-btn.plus,
+.theme-luxury .quick-discount.active {
+  color: #000000 !important;
+  background: #ffd76a !important;
+}
+
+.theme-blueprint input,
+.theme-blueprint textarea,
+.theme-blueprint .percent-input,
+.theme-blueprint .glue-row input,
+.theme-blueprint .delivery-qty,
+.theme-blueprint .delivery-price,
+.theme-blueprint .inline-inputs input,
+.theme-blueprint .lintel-search {
+  background: #031426 !important;
+  color: #ffffff !important;
+  border-color: #dbeafe !important;
+  opacity: 1 !important;
+}
+
+.theme-blueprint input::placeholder,
+.theme-blueprint textarea::placeholder {
+  color: #e0f2fe !important;
+  opacity: 1 !important;
+}
+
+.theme-blueprint .cart-item,
+.theme-blueprint .delivery-cart-item,
+.theme-blueprint .copy-summary,
+.theme-blueprint .total-line,
+.theme-blueprint .selected-line,
+.theme-blueprint .history-item,
+.theme-blueprint .lintel-result,
+.theme-blueprint .lintel-item,
+.theme-blueprint .ceramic-item,
+.theme-blueprint .ceramic-info-line span {
+  background: #031426 !important;
+  color: #ffffff !important;
+  border-color: #dbeafe !important;
+}
+
+.theme-blueprint .cart-item *,
+.theme-blueprint .copy-summary *,
+.theme-blueprint .total-line *,
+.theme-blueprint .selected-line *,
+.theme-blueprint .delivery-new-row *,
+.theme-blueprint .glue-row *,
+.theme-blueprint .history-item *,
+.theme-blueprint .lintel-result *,
+.theme-blueprint .ceramic-item * {
+  color: #ffffff !important;
+}
+
+/* Важные светлые блоки в темах не должны давать белый текст на белом */
+.theme-dark .quick-discount.active,
+.theme-dark .segmented button.active,
+.theme-dark .width-btn.active,
+.theme-blueprint .quick-discount.active,
+.theme-blueprint .segmented button.active,
+.theme-blueprint .width-btn.active {
+  color: #020617 !important;
+}
+
+/* Drawer полностью перекрывает фон, фон не скроллится */
+.drawer-backdrop,
+.history-backdrop {
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
+.drawer-sheet,
+.history-panel {
+  touch-action: auto;
+  overscroll-behavior: contain;
+}
+
+
+/* V3 fixes: centered mobile, editable prices, readable inputs */
+
+@media (max-width: 980px) {
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .app {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    overflow-x: hidden !important;
+  }
+
+  .calculator-column,
+  .card,
+  .cart-card,
+  .customer-card,
+  .ceramic-card,
+  .delivery-new-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .card {
+    contain: paint;
+  }
+
+  .card::before {
+    display: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .app {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+input,
+textarea,
+select,
+.percent-input,
+.inline-inputs input,
+.glue-row input,
+.delivery-qty,
+.delivery-price,
+.lintel-search,
+.customer-grid input {
+  background: #ffffff !important;
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  opacity: 1 !important;
+  caret-color: #111827 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+  opacity: 1 !important;
+}
+
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark select,
+.theme-dark .percent-input,
+.theme-dark .inline-inputs input,
+.theme-dark .glue-row input,
+.theme-dark .delivery-qty,
+.theme-dark .delivery-price,
+.theme-dark .lintel-search,
+.theme-dark .customer-grid input,
+.theme-luxury input,
+.theme-luxury textarea,
+.theme-luxury select,
+.theme-luxury .percent-input,
+.theme-luxury .inline-inputs input,
+.theme-luxury .glue-row input,
+.theme-luxury .delivery-qty,
+.theme-luxury .delivery-price,
+.theme-luxury .lintel-search,
+.theme-luxury .customer-grid input,
+.theme-blueprint input,
+.theme-blueprint textarea,
+.theme-blueprint select,
+.theme-blueprint .percent-input,
+.theme-blueprint .inline-inputs input,
+.theme-blueprint .glue-row input,
+.theme-blueprint .delivery-qty,
+.theme-blueprint .delivery-price,
+.theme-blueprint .lintel-search,
+.theme-blueprint .customer-grid input {
+  background: #050505 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+}
+
+.clear-customer-btn {
+  width: 100%;
+  border: 2px solid var(--line);
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--black);
+  background: var(--red);
+  color: #fff;
+}
+
+.customer-actions {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 800px) {
+  .customer-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .clear-customer-btn {
+    margin-top: 4px;
+    padding: 9px;
+    font-size: 13px;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+}
+
+
+/* V4 layout */
+.customer-card + .segmented {
+  margin-top: 8px;
+}
+
+
+/* U-block modal */
+.ublock-open-btn {
+  width: 100%;
+  border: 2px solid var(--line);
+  background: var(--yellow);
+  color: var(--black);
+  padding: 12px;
+  margin-top: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 var(--black);
+  cursor: pointer;
+}
+
+.ublock-section {
+  margin-top: 10px;
+}
+
+.ublock-width-grid {
+  margin-bottom: 0;
+}
+
+.ublock-input-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ublock-input-grid label {
+  display: grid;
+  gap: 5px;
+  font-weight: 900;
+}
+
+.ublock-input-grid input {
+  border: 2px solid var(--line);
+  padding: 10px;
+  font-weight: 900;
+}
+
+.ublock-result {
+  margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .ublock-open-btn {
+    padding: 9px;
+    font-size: 13px;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+
+  .ublock-input-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .ublock-section {
+    margin-top: 7px;
+  }
+}
+
+
+/* V7: dots modal sections */
+.modal-section-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.modal-section-tabs button {
+  border: 2px solid var(--line);
+  background: #fff;
+  color: var(--black);
+  padding: 11px 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+.modal-section-tabs button.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+.theme-dark .modal-section-tabs button,
+.theme-luxury .modal-section-tabs button,
+.theme-blueprint .modal-section-tabs button {
+  background: #050505;
+  color: #fff;
+}
+
+.theme-dark .modal-section-tabs button.active,
+.theme-luxury .modal-section-tabs button.active,
+.theme-blueprint .modal-section-tabs button.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .modal-section-tabs {
+    gap: 4px;
+    margin: 7px 0;
+  }
+
+  .modal-section-tabs button {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+}
+
+
+/* V8: classic theme only */
+.app {
+  overflow-x: hidden;
+}
+
+
+/* V9: Disable mobile input zoom and page zoom */
+html,
+body {
+  touch-action: pan-x pan-y;
+  -ms-touch-action: pan-x pan-y;
+  overscroll-behavior-x: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* iOS Safari auto-zooms inputs below 16px. Keep all controls >=16px */
+input,
+textarea,
+select,
+button {
+  font-size: 16px !important;
+}
+
+/* Keep mobile UI compact visually while font-size remains 16px */
+@media (max-width: 700px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  button {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+  }
+
+  .segmented button,
+  .width-btn,
+  .theme-btn,
+  .quick-discount,
+  .delivery-new-title,
+  .glue-name {
+    font-size: 16px !important;
+  }
+
+  .delivery-new-title,
+  .glue-name {
+    transform: scale(0.78);
+    transform-origin: left center;
+    white-space: nowrap;
+  }
+}
+
+/* Remove double-tap zoom behavior on buttons/inputs */
+button,
+input,
+textarea,
+select,
+label,
+.card,
+.app {
+  touch-action: manipulation;
+}
+
+
+/* V11: fast tapping on mobile without blocked double tap */
+button,
+input,
+textarea,
+select,
+.width-btn,
+.quick-discount,
+.percent-btn,
+.delivery-plus,
+.segmented button,
+.copy-btn,
+.add-main,
+.cancel-edit-btn,
+.drawer-close,
+.lintel-item,
+.lintel-cats button,
+.modal-section-tabs button {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Faster repeated taps */
+button {
+  transition: none !important;
+}
+
+/* Keep iOS from zooming inputs */
+input,
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+
+/* V12: do not move/scale buttons on tap; enables rapid repeat taps */
+button:active,
+.theme-btn:active,
+.segmented button:active,
+.width-btn:active,
+.add-main:active,
+.copy-btn:active,
+.clear-btn:active,
+.percent-btn:active,
+.quick-discount:active,
+.cart-item button:active,
+.delivery-minus:active,
+.delivery-plus:active,
+.glue-row button:active,
+.lintel-add-main:active,
+.lintel-item:active,
+.ceramic-item:active {
+  transform: none !important;
+}
+
+button,
+.percent-btn,
+.delivery-minus,
+.delivery-plus,
+.quick-add button,
+.discount-row button,
+.qty-box button,
+.glue-row button,
+.lintel-cats button,
+.modal-section-tabs button {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  user-select: none !important;
+  cursor: pointer;
+}
+
+/* avoids browser treating rapid taps as selection/zoom */
+.app {
+  touch-action: pan-y !important;
+}
+
+
+/* V13: correct fast taps
+   One tap = one click.
+   Two fast taps = two clicks.
+   No onPointerDown duplicate clicks. */
+
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button:active,
+.percent-btn:active,
+.delivery-minus:active,
+.delivery-plus:active,
+.qty-box button:active,
+.discount-row button:active,
+.quick-add button:active {
+  transform: none !important;
+}
+
+/* iPhone: no input auto-zoom */
+input,
+textarea,
+select {
+  font-size: 16px !important;
+}

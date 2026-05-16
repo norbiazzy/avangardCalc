@@ -18,7 +18,7 @@ function DeliveryRow({ title, qty, price, onQtyChange, onPriceChange }) {
         className="delivery-qty"
         type="number"
         value={qty}
-        onChange={(e) => onQtyChange(Number(e.target.value))}
+        onChange={(e) => onQtyChange(e.target.value === "" ? "" : Number(e.target.value))}
       />
 
       <button
@@ -33,7 +33,7 @@ function DeliveryRow({ title, qty, price, onQtyChange, onPriceChange }) {
         className="delivery-price"
         type="number"
         value={price}
-        onChange={(e) => onPriceChange(Number(e.target.value))}
+        onChange={(e) => onPriceChange(e.target.value === "" ? "" : Number(e.target.value))}
       />
 
       <div className="delivery-currency">руб</div>

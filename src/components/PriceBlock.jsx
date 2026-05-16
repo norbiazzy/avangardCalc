@@ -15,6 +15,25 @@ export default function PriceBlock({
     updateProductParam("percent", Number(product.percent || 0) + step);
   }
 
+  function updateFinalPrice(value) {
+    if (value === "") {
+      updateProductParam("percent", "");
+      return;
+    }
+
+    const basePrice = Number(product.pricePerM3 || 0);
+    const nextFinalPrice = Number(value || 0);
+
+    if (!basePrice) {
+      updateProductParam("pricePerM3", nextFinalPrice);
+      updateProductParam("percent", 0);
+      return;
+    }
+
+    const nextPercent = +(((nextFinalPrice - basePrice) / basePrice) * 100).toFixed(2);
+    updateProductParam("percent", nextPercent);
+  }
+
   return (
     <section className="card small-card">
       <div className="inline-inputs price-line">
@@ -24,17 +43,21 @@ export default function PriceBlock({
             type="number"
             value={product.pricePerM3}
             onChange={(e) =>
-              updateProductParam("pricePerM3", Number(e.target.value))
+              updateProductParam("pricePerM3", e.target.value === "" ? "" : Number(e.target.value))
             }
           />
         </label>
 
         <label>
           <span>Цена</span>
-          <input type="number" value={finalPrice} readOnly />
+          <input
+            type="number"
+            value={finalPrice}
+            onChange={(e) => updateFinalPrice(e.target.value)}
+          />
         </label>
 
-        <div className="percent-control">
+        <div className="percent-control manual-percent-control">
           <button
             type="button"
             className="percent-btn plus"
@@ -43,9 +66,15 @@ export default function PriceBlock({
             +
           </button>
 
-          <div className="percent-value">
-            {product.percent}%
-          </div>
+          <input
+            className="percent-input"
+            type="number"
+            value={product.percent}
+            onChange={(e) =>
+              updateProductParam("percent", e.target.value === "" ? "" : Number(e.target.value))
+            }
+            placeholder="%"
+          />
 
           <button
             type="button"

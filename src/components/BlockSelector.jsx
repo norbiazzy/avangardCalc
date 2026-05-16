@@ -53,7 +53,7 @@ export default function BlockSelector({ product, updateProductParam, openLintelM
             className="width-btn custom-width-btn"
             onClick={() => product.manufacturerKey === "bonolit" ? openLintelModal() : showToast("Для этого производителя добавим позже", "error")}
           >
-            Другая
+            ...
           </button>
         </div>
       </div>

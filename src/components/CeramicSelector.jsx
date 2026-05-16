@@ -227,7 +227,7 @@ export default function CeramicSelector({ onAddCeramic, showToast }) {
             <input
               type="number"
               value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
+              onChange={(e) => setPrice(e.target.value === "" ? "" : Number(e.target.value))}
             />
           </label>
 

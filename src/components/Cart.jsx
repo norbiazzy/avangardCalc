@@ -33,7 +33,11 @@ export default function Cart({
           <div className="cart-item" key={item.id}>
             <div>
               <strong>{item.title}</strong>
-              {item.type === "ceramic" ? (
+              {item.type === "ublock" ? (
+                <small>
+                  {item.qty} шт * {formatMoney(item.finalPrice)}
+                </small>
+              ) : item.type === "ceramic" ? (
                 <small>
                   {item.shortTitle} · {item.qty} шт · {item.m3} м³ · {item.pallets} под. · {formatMoney(item.finalPrice)}
                 </small>
