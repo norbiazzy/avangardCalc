@@ -619,12 +619,27 @@ export default function Calculator() {
     return new Intl.NumberFormat("ru-RU").format(Number(value || 0));
   }
 
+  function formatQtyValue(value) {
+    if (value === "" || value === null || value === undefined) return "0";
+
+    const prepared = String(value).replace(",", ".");
+    const number = Number(prepared);
+
+    if (Number.isNaN(number)) {
+      return String(value);
+    }
+
+    return new Intl.NumberFormat("ru-RU", {
+      maximumFractionDigits: 3,
+    }).format(number);
+  }
+
   function formatM3(value) {
-    return String(Number(value || 0)).replace(".", ",");
+    return formatQtyValue(value);
   }
 
   function moneyLine(qty, unit, price, total) {
-    return `${formatNumber(qty)} ${unit} × ${formatNumber(price)} ₽ = ${formatNumber(total)} ₽`;
+    return `${formatQtyValue(qty)} ${unit} × ${formatNumber(price)} ₽ = ${formatNumber(total)} ₽`;
   }
 
   function getItemPrice(item) {
@@ -634,7 +649,7 @@ export default function Calculator() {
   function getItemQtyUnit(item) {
     if (item.type === "block") {
       return {
-        qty: formatM3(item.m3),
+        qty: item.m3,
         unit: "м3",
       };
     }
