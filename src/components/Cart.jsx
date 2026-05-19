@@ -1,5 +1,10 @@
 import { formatMoney } from "../utils/calculatePrice";
 
+function formatQty(value) {
+  const number = Number(value || 0);
+  return Number.isInteger(number) ? String(number) : String(+number.toFixed(3));
+}
+
 export default function Cart({
   cart,
   total,
@@ -16,7 +21,24 @@ export default function Cart({
     if (item.type === "block") return sum + Number(item.pieces || 0);
     if (item.type === "ceramic") return sum + Number(item.qty || item.pieces || 0);
     if (item.type === "lintel") return sum + Number(item.qty || 0);
+    if (item.type === "ublock") return sum + Number(item.qty || 0);
+    if (item.type === "other" && item.unit === "шт") return sum + Number(item.qty || 0);
     if (item.type === "glue" || item.type === "foam") return sum + Number(item.qty || 0);
+    return sum;
+  }, 0);
+
+  const volumeTotal = cart.reduce((sum, item) => {
+    if (item.type === "block") return sum + Number(item.m3 || 0);
+    if (item.type === "ceramic") return sum + Number(item.m3 || 0);
+    if (item.type === "ublock") return sum + Number(item.volumeM3 || 0) * Number(item.qty || 0);
+    if (item.type === "other" && item.unit === "м³") return sum + Number(item.qty || 0);
+    return sum;
+  }, 0);
+
+  const palletsTotal = cart.reduce((sum, item) => {
+    if (item.type === "block") return sum + Number(item.pallets || 0);
+    if (item.type === "ceramic") return sum + Number(item.pallets || 0);
+    if (item.type === "other" && item.unit === "пал.") return sum + Number(item.qty || 0);
     return sum;
   }, 0);
 
@@ -33,7 +55,11 @@ export default function Cart({
           <div className="cart-item" key={item.id}>
             <div>
               <strong>{item.title}</strong>
-              {item.type === "ublock" ? (
+              {item.type === "other" ? (
+                <small>
+                  {item.qty} {item.unit} * {formatMoney(item.finalPrice)}
+                </small>
+              ) : item.type === "ublock" ? (
                 <small>
                   {item.qty} шт * {formatMoney(item.finalPrice)}
                 </small>
@@ -52,12 +78,16 @@ export default function Cart({
             </div>
 
             <div className="cart-actions">
-              {item.type === "block" && (
+              {(item.type === "block" || item.type === "other") && (
                 <button
                   className="edit-btn"
                   onClick={() => startEditCartItem(item.id)}
                 >
-                  Ред.
+                  <img
+                    src={`${process.env.PUBLIC_URL}/edit-pencil.svg`}
+                    alt="Редактировать"
+                    className="edit-icon"
+                  />
                 </button>
               )}
 
@@ -93,6 +123,16 @@ export default function Cart({
       <div className="copy-summary">
         <span>Штук в заказе</span>
         <strong>{piecesTotal}</strong>
+      </div>
+
+      <div className="copy-summary">
+        <span>Объем в заказе</span>
+        <strong>{formatQty(volumeTotal)} м³</strong>
+      </div>
+
+      <div className="copy-summary">
+        <span>Паллет в заказе</span>
+        <strong>{formatQty(palletsTotal)}</strong>
       </div>
 
       <div className="copy-summary">

@@ -10,7 +10,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 2.16,
     "piecesPerPallet": 36,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-400-250-2",
@@ -23,7 +24,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.92,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-375-250-3",
@@ -36,7 +38,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-375-250-4",
@@ -49,7 +52,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-350-250-5",
@@ -62,7 +66,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.68,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-350-250-6",
@@ -75,7 +80,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.68,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-300-250-7",
@@ -88,7 +94,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 40,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-300-250-8",
@@ -101,7 +108,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 40,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-300-200-9",
@@ -114,7 +122,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 50,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-300-200-10",
@@ -127,7 +136,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 50,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-250-250-11",
@@ -140,7 +150,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 48,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-250-250-12",
@@ -153,7 +164,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 48,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-200-250-13",
@@ -166,7 +178,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-200-250-14",
@@ -179,7 +192,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-250-200-15",
@@ -192,7 +206,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-250-200-16",
@@ -205,7 +220,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-200-200-17",
@@ -218,7 +234,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.44,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-200-200-18",
@@ -231,7 +248,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.44,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-150-250-19",
@@ -244,7 +262,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 80,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-150-250-20",
@@ -257,7 +276,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 80,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-125-250-21",
@@ -270,7 +290,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 96,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-125-250-22",
@@ -283,7 +304,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 96,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-100-250-23",
@@ -296,7 +318,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 120,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-100-250-24",
@@ -309,7 +332,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 120,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-75-250-25",
@@ -322,7 +346,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 160,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-75-250-26",
@@ -335,7 +360,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 160,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "SK-600-50-250-27",
@@ -348,7 +374,8 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 240,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
     "id": "DZGI-600-50-250-28",
@@ -361,370 +388,987 @@ export const BLOCKS = [
     "strength": "B2.5",
     "palletM3": 1.8,
     "piecesPerPallet": 240,
-    "pricePerM3": 4500
+    "pricePerM3": 4500,
+    "manufacturerKey": "bonolit"
   },
   {
-    "id": "SK-625-400-250-29",
+    "id": "BONOLIT-SK-D400-625-400-250-29",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 400,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
-    "palletM3": 2,
+    "palletM3": 2.0,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-400-250-30",
+    "id": "BONOLIT-DZGI-D400-625-400-250-30",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 400,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
-    "palletM3": 2,
+    "palletM3": 2.0,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-375-250-31",
+    "id": "BONOLIT-MY-D400-625-400-250-31",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 400,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 32,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-400-250-32",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 400,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 32,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-400-250-33",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 400,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 32,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-375-250-34",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 375,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-375-250-32",
+    "id": "BONOLIT-DZGI-D400-625-375-250-35",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 375,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-350-250-33",
+    "id": "BONOLIT-MY-D400-625-375-250-36",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 375,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 32,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-375-250-37",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 375,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 32,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-375-250-38",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 375,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 32,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-350-250-39",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 350,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.75,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-350-250-34",
+    "id": "BONOLIT-DZGI-D400-625-350-250-40",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 350,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.75,
     "piecesPerPallet": 32,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-300-250-35",
+    "id": "BONOLIT-MY-D400-625-350-250-41",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 350,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.75,
+    "piecesPerPallet": 32,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-350-250-42",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 350,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.75,
+    "piecesPerPallet": 32,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-350-250-43",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 350,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.75,
+    "piecesPerPallet": 32,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-300-250-44",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 300,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 40,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-300-250-36",
+    "id": "BONOLIT-DZGI-D400-625-300-250-45",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 300,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 40,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-300-200-37",
+    "id": "BONOLIT-MY-D400-625-300-250-46",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 300,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 40,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-300-250-47",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 300,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 40,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-300-250-48",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 300,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 40,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-300-200-49",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 300,
     "height": 200,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 50,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-300-200-38",
+    "id": "BONOLIT-DZGI-D400-625-300-200-50",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 300,
     "height": 200,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 50,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-250-250-39",
+    "id": "BONOLIT-MY-D400-625-300-200-51",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 300,
+    "height": 200,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 50,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-300-200-52",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 300,
+    "height": 200,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 50,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-300-200-53",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 300,
+    "height": 200,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 50,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-250-250-54",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 250,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 48,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-250-250-40",
+    "id": "BONOLIT-DZGI-D400-625-250-250-55",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 250,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 48,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-200-250-41",
+    "id": "BONOLIT-MY-D400-625-250-250-56",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 250,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 48,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-250-250-57",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 250,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 48,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-250-250-58",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 250,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 48,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-200-250-59",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 200,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-200-250-42",
+    "id": "BONOLIT-DZGI-D400-625-200-250-60",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 200,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-250-200-43",
+    "id": "BONOLIT-MY-D400-625-200-250-61",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 200,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 60,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-200-250-62",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 200,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 60,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-200-250-63",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 200,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 60,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-250-200-64",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 250,
     "height": 200,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-250-200-44",
+    "id": "BONOLIT-DZGI-D400-625-250-200-65",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 250,
     "height": 200,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 60,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-200-200-45",
+    "id": "BONOLIT-MY-D400-625-250-200-66",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 250,
+    "height": 200,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 60,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-250-200-67",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 250,
+    "height": 200,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 60,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-250-200-68",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 250,
+    "height": 200,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 60,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-200-200-69",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 200,
     "height": 200,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
-    "palletM3": 2,
+    "palletM3": 2.0,
     "piecesPerPallet": 80,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-200-200-46",
+    "id": "BONOLIT-DZGI-D400-625-200-200-70",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 200,
     "height": 200,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
-    "palletM3": 2,
+    "palletM3": 2.0,
     "piecesPerPallet": 80,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-150-250-47",
+    "id": "BONOLIT-MY-D400-625-200-200-71",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 200,
+    "height": 200,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 80,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-200-200-72",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 200,
+    "height": 200,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 80,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-200-200-73",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 200,
+    "height": 200,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 80,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-150-250-74",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 150,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 80,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-150-250-48",
+    "id": "BONOLIT-DZGI-D400-625-150-250-75",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 150,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 80,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-125-250-49",
+    "id": "BONOLIT-MY-D400-625-150-250-76",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 150,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 80,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-150-250-77",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 150,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 80,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-150-250-78",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 150,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 80,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-125-250-79",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 125,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 96,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-125-250-50",
+    "id": "BONOLIT-DZGI-D400-625-125-250-80",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 125,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 96,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-100-250-51",
+    "id": "BONOLIT-MY-D400-625-125-250-81",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 125,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 96,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-125-250-82",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 125,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 96,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-125-250-83",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 125,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 96,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-100-250-84",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 100,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
-    "palletM3": 2,
+    "palletM3": 2.0,
     "piecesPerPallet": 128,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-100-250-52",
+    "id": "BONOLIT-DZGI-D400-625-100-250-85",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 100,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
-    "palletM3": 2,
+    "palletM3": 2.0,
     "piecesPerPallet": 128,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-75-250-53",
+    "id": "BONOLIT-MY-D400-625-100-250-86",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 100,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 128,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-100-250-87",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 100,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 128,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-100-250-88",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 100,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 2.0,
+    "piecesPerPallet": 128,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-75-250-89",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 75,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 160,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-75-250-54",
+    "id": "BONOLIT-DZGI-D400-625-75-250-90",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 75,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 160,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "SK-625-50-250-55",
+    "id": "BONOLIT-MY-D400-625-75-250-91",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 75,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 160,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-75-250-92",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 75,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 160,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-75-250-93",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 75,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 160,
+    "pricePerM3": 5664
+  },
+  {
+    "id": "BONOLIT-SK-D400-625-50-250-94",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "SK",
     "length": 625,
     "width": 50,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 240,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
   },
   {
-    "id": "DZGI-625-50-250-56",
+    "id": "BONOLIT-DZGI-D400-625-50-250-95",
     "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
     "factory": "DZGI",
     "length": 625,
     "width": 50,
     "height": 250,
-    "density": "D500",
+    "density": "D400",
     "strength": "B2.5",
     "palletM3": 1.875,
     "piecesPerPallet": 240,
-    "pricePerM3": 4500
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D400-625-50-250-96",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 50,
+    "height": 250,
+    "density": "D400",
+    "strength": "B2.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 240,
+    "pricePerM3": 6048
+  },
+  {
+    "id": "BONOLIT-MY-D500-625-50-250-97",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 50,
+    "height": 250,
+    "density": "D500",
+    "strength": "B3.5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 240,
+    "pricePerM3": 5568
+  },
+  {
+    "id": "BONOLIT-MY-D600-625-50-250-98",
+    "manufacturer": "Бонолит",
+    "manufacturerKey": "bonolit",
+    "factory": "MY",
+    "length": 625,
+    "width": 50,
+    "height": 250,
+    "density": "D600",
+    "strength": "B5",
+    "palletM3": 1.875,
+    "piecesPerPallet": 240,
+    "pricePerM3": 5664
   }
 ];

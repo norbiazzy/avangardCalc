@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { formatMoney } from "../utils/calculatePrice";
 import { calculateDeliveryTotal } from "../utils/calculateDelivery";
+import AutoDeliveryModal from "./AutoDeliveryModal";
 
 function DeliveryRow({ title, qty, price, onQtyChange, onPriceChange }) {
   return (
@@ -41,12 +43,27 @@ function DeliveryRow({ title, qty, price, onQtyChange, onPriceChange }) {
   );
 }
 
-export default function DeliveryBlock({ delivery, updateDelivery }) {
+export default function DeliveryBlock({
+  delivery,
+  updateDelivery,
+  cart = [],
+  applyAutoDelivery,
+  showToast,
+}) {
+  const [isAutoOpen, setIsAutoOpen] = useState(false);
   const deliveryTotal = calculateDeliveryTotal(delivery);
 
   return (
     <section className="card delivery-new-card">
       <h2>Доставка</h2>
+
+      <button
+        type="button"
+        className="auto-delivery-open-btn"
+        onClick={() => setIsAutoOpen(true)}
+      >
+        Автодоставка
+      </button>
 
       <DeliveryRow
         title="Фура"
@@ -84,6 +101,14 @@ export default function DeliveryBlock({ delivery, updateDelivery }) {
         <span>Итого доставка</span>
         <strong>{formatMoney(deliveryTotal)}</strong>
       </div>
+
+      <AutoDeliveryModal
+        isOpen={isAutoOpen}
+        onClose={() => setIsAutoOpen(false)}
+        cart={cart}
+        applyAutoDelivery={applyAutoDelivery}
+        showToast={showToast}
+      />
     </section>
   );
 }

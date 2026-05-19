@@ -8,6 +8,7 @@ import DeliveryBlock from "./DeliveryBlock";
 import Cart from "./Cart";
 import LintelModal from "./LintelModal";
 import CeramicSelector from "./CeramicSelector";
+import OtherSelector from "./OtherSelector";
 import Toast from "./Toast";
 import CustomerBlock from "./CustomerBlock";
 import OrderHistory from "./OrderHistory";
@@ -65,6 +66,7 @@ const defaultState = {
   },
   cart: [],
   editingItemId: null,
+  editingOtherItemId: null,
   isLintelModalOpen: false,
   toast: null,
   theme: localStorage.getItem("app-theme") || "classic",
@@ -107,11 +109,14 @@ export default function Calculator() {
     delivery,
     cart,
     editingItemId,
+    editingOtherItemId,
     isLintelModalOpen,
     toast,
     isHistoryOpen,
     orderHistory,
   } = state;
+
+  const editingOtherItem = cart.find((item) => item.id === editingOtherItemId && item.type === "other") || null;
 
   const customer = {
     ...DEFAULT_CUSTOMER,
@@ -289,6 +294,18 @@ export default function Calculator() {
         [field]: value,
       };
 
+      if (field === "density" && value === "D600") {
+        draft.strength = "B5";
+      }
+
+      if (field === "density" && value === "D500") {
+        draft.strength = "B3.5";
+      }
+
+      if (field === "density" && value === "D400") {
+        draft.strength = "B2.5";
+      }
+
       draft = normalizeProduct(draft);
 
       const matchedBlock = findClosestBlock(draft);
@@ -361,6 +378,16 @@ export default function Calculator() {
     setState((prev) => ({ ...prev, delivery: { ...prev.delivery, [field]: value } }));
   }
 
+  function applyAutoDelivery(patch) {
+    setState((prev) => ({
+      ...prev,
+      delivery: {
+        ...prev.delivery,
+        ...patch,
+      },
+    }));
+  }
+
   function makeBlockCartItem(id) {
     return {
       id,
@@ -391,6 +418,7 @@ export default function Calculator() {
     setState((prev) => ({
       ...prev,
       editingItemId: null,
+  editingOtherItemId: null,
     }));
 
     showToast("Редактирование отменено");
@@ -411,6 +439,7 @@ export default function Calculator() {
           item.id === editingItemId ? updatedItem : item
         ),
         editingItemId: null,
+  editingOtherItemId: null,
       }));
 
       showToast("Изменения сохранены");
@@ -490,7 +519,18 @@ export default function Calculator() {
   function startEditCartItem(id) {
     const item = cart.find((cartItem) => cartItem.id === id);
 
-    if (!item || item.type !== "block") return;
+    if (!item) return;
+
+    if (item.type === "other") {
+      setState((prev) => ({
+        ...prev,
+        productType: "other",
+        editingOtherItemId: id,
+      }));
+      return;
+    }
+
+    if (item.type !== "block") return;
 
     setState((prev) => ({
       ...prev,
@@ -513,6 +553,30 @@ export default function Calculator() {
         pieces: item.pieces,
         pallets: item.pallets,
       },
+    }));
+  }
+
+  function addOtherToCart(item) {
+    setState((prev) => ({
+      ...prev,
+      cart: [...prev.cart, item],
+    }));
+  }
+
+  function updateOtherInCart(item) {
+    setState((prev) => ({
+      ...prev,
+      cart: prev.cart.map((cartItem) =>
+        cartItem.id === item.id ? item : cartItem
+      ),
+      editingOtherItemId: null,
+    }));
+  }
+
+  function clearEditingOther() {
+    setState((prev) => ({
+      ...prev,
+      editingOtherItemId: null,
     }));
   }
 
@@ -559,62 +623,111 @@ export default function Calculator() {
     return String(Number(value || 0)).replace(".", ",");
   }
 
+  function moneyLine(qty, unit, price, total) {
+    return `${formatNumber(qty)} ${unit} × ${formatNumber(price)} ₽ = ${formatNumber(total)} ₽`;
+  }
+
+  function getItemPrice(item) {
+    return item.finalPrice || item.price || item.pricePerM3 || 0;
+  }
+
+  function getItemQtyUnit(item) {
+    if (item.type === "block") {
+      return {
+        qty: formatM3(item.m3),
+        unit: "м3",
+      };
+    }
+
+    if (item.type === "ceramic") {
+      return {
+        qty: item.qty,
+        unit: "шт",
+      };
+    }
+
+    if (item.type === "ublock" || item.type === "lintel") {
+      return {
+        qty: item.qty,
+        unit: "шт",
+      };
+    }
+
+    if (item.type === "other") {
+      return {
+        qty: item.qty,
+        unit: item.unit,
+      };
+    }
+
+    if (item.type === "glue" || item.type === "foam") {
+      return {
+        qty: item.qty,
+        unit: item.unit || "шт",
+      };
+    }
+
+    return {
+      qty: item.qty || 1,
+      unit: item.unit || "шт",
+    };
+  }
+
+  function getFullItemText(item) {
+    const { qty, unit } = getItemQtyUnit(item);
+    const price = getItemPrice(item);
+
+    if (item.type === "block") {
+      return [
+        item.title,
+        `${item.pallets} под. по ${item.piecesPerPallet} шт - ${item.pieces} шт`,
+        moneyLine(qty, unit, price, item.total),
+      ].join("\n");
+    }
+
+    if (item.type === "ceramic") {
+      return [
+        item.title,
+        `${item.pallets} под. по ${item.pcsPerPallet} шт - ${item.qty} шт`,
+        `${formatM3(item.m3)} м3`,
+        moneyLine(qty, unit, price, item.total),
+      ].join("\n");
+    }
+
+    return [
+      item.title || item.shortTitle,
+      moneyLine(qty, unit, price, item.total),
+    ].join("\n");
+  }
+
+  function getMinimalItemText(item) {
+    const { qty, unit } = getItemQtyUnit(item);
+    const price = getItemPrice(item);
+
+    if (item.type === "block") {
+      return `${item.density} ${item.length}*${item.width}*${item.height} ${item.strength.replace(".", ",")} - ${moneyLine(qty, unit, price, item.total)}`;
+    }
+
+    if (item.type === "ceramic") {
+      return `${item.shortTitle} - ${moneyLine(qty, unit, price, item.total)}`;
+    }
+
+    return `${item.shortTitle || item.title} - ${moneyLine(qty, unit, price, item.total)}`;
+  }
+
   function makeFullOrderText() {
     return [
-      ...cart.map((item) => {
-        if (item.type === "ceramic") {
-          return [
-            item.title,
-            `${item.pallets} под. по ${item.pcsPerPallet} шт — ${item.qty} шт`,
-            `${formatM3(item.m3)} м3 · ${formatNumber(item.finalPrice)} ₽ × ${item.qty} шт = ${formatNumber(item.total)} ₽`,
-          ].join("\n");
-        }
-
-        if (item.type === "ublock") {
-          return `${item.title}\n${item.qty} шт * ${formatNumber(item.finalPrice)} ₽ - ${formatNumber(item.total)} ₽`;
-        }
-
-        if (item.type === "lintel") {
-          return `${item.title}\n${item.qty} шт × ${formatNumber(item.finalPrice)} ₽ = ${formatNumber(item.total)} ₽`;
-        }
-
-        if (item.type !== "block") {
-          return `${item.title}\n${item.description || ""}\n${formatNumber(item.total)} ₽`;
-        }
-
-        return [
-          item.title,
-          `${item.pallets} под. по ${item.piecesPerPallet} шт - ${item.pieces} шт`,
-          `${formatM3(item.m3)} м3 * ${formatNumber(item.finalPrice)} ₽ - ${formatNumber(item.total)} ₽`,
-        ].join("\n");
-      }),
-      ...deliveryItems.map((item) => `${item.title}\n${item.qty} шт × ${formatNumber(item.price)} ₽ - ${formatNumber(item.total)} ₽`),
+      ...cart.map(getFullItemText),
+      ...deliveryItems.map((item) => `${item.title}
+${moneyLine(item.qty, "шт", item.price, item.total)}`),
       `Итого: ${formatNumber(total)} ₽`,
-    ].join("\n\n");
+    ].join("\n");
   }
 
   function makeMinimalOrderText() {
     return [
-      ...cart.map((item) => {
-        if (item.type === "ceramic") {
-          return `${item.shortTitle} — ${item.qty} шт — ${formatM3(item.m3)} м3 — ${formatNumber(item.total)} ₽`;
-        }
-
-        if (item.type === "ublock") {
-          return `${item.title} - ${item.qty} шт * ${formatNumber(item.finalPrice)} ₽ - ${formatNumber(item.total)} ₽`;
-        }
-
-        if (item.type === "lintel") {
-          return `${item.shortTitle} - ${item.qty} шт × ${formatNumber(item.finalPrice)} ₽ = ${formatNumber(item.total)} ₽`;
-        }
-
-        if (item.type !== "block") {
-          return `${item.title} - ${formatNumber(item.total)} ₽`;
-        }
-
-        return `${item.density} ${item.length}*${item.width}*${item.height} ${item.strength.replace(".", ",")} - ${formatM3(item.m3)} м3 * ${formatNumber(item.finalPrice)} ₽ - ${formatNumber(item.total)} ₽`;
-      }),
-      ...deliveryItems.map((item) => `${item.title} - ${item.qty} шт * ${formatNumber(item.price)} ₽ - ${formatNumber(item.total)} ₽`),
+      ...cart.map(getMinimalItemText),
+      ...deliveryItems.map((item) => `${item.title} - ${moneyLine(item.qty, "шт", item.price, item.total)}`),
       `Итого: ${formatNumber(total)} ₽`,
     ].join("\n");
   }
@@ -644,13 +757,13 @@ export default function Calculator() {
           onChange={(value) => {
             if (value === "Блок") setProductType("block");
             if (value === "Керамика") setProductType("ceramic");
-            if (value === "Другой") showToast("Раздел Другой добавим позже", "error");
+            if (value === "Другой") setProductType("other");
           }}
         />
 
         
 
-        {productType === "block" ? (
+                {productType === "block" && (
           <>
             <BlockSelector
               product={product}
@@ -686,9 +799,21 @@ export default function Calculator() {
               addFoamToCart={addFoamToCart}
             />
           </>
-        ) : (
+        )}
+
+        {productType === "ceramic" && (
           <CeramicSelector
             onAddCeramic={addCeramicToCart}
+            showToast={showToast}
+          />
+        )}
+
+        {productType === "other" && (
+          <OtherSelector
+            onAddOther={addOtherToCart}
+            onUpdateOther={updateOtherInCart}
+            editingOtherItem={editingOtherItem}
+            clearEditingOther={clearEditingOther}
             showToast={showToast}
           />
         )}
@@ -696,6 +821,9 @@ export default function Calculator() {
         <DeliveryBlock
           delivery={delivery}
           updateDelivery={updateDelivery}
+          cart={cart}
+          applyAutoDelivery={applyAutoDelivery}
+          showToast={showToast}
         />
       </div>
 

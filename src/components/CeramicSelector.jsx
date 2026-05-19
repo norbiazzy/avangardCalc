@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import SegmentedButtons from "./SegmentedButtons";
+import PriceDiscountBlock from "./PriceDiscountBlock";
 import {
   getCeramicManufacturers,
   getCeramicProducts,
@@ -93,6 +94,24 @@ export default function CeramicSelector({ onAddCeramic, showToast }) {
 
   function changePercent(step) {
     setPercent(Number(percent || 0) + step);
+  }
+
+  function updateFinalPrice(value) {
+    if (value === "") {
+      setPercent("");
+      return;
+    }
+
+    const basePrice = Number(price || 0);
+    const nextFinalPrice = Number(value || 0);
+
+    if (!basePrice) {
+      setPrice(nextFinalPrice);
+      setPercent(0);
+      return;
+    }
+
+    setPercent(+(((nextFinalPrice - basePrice) / basePrice) * 100).toFixed(2));
   }
 
   function addCeramic() {
@@ -219,61 +238,16 @@ export default function CeramicSelector({ onAddCeramic, showToast }) {
       </section>
 
       <section className="ceramic-sub-card">
-        <h3>Цена и скидка</h3>
-
-        <div className="inline-inputs price-line">
-          <label>
-            <span>₽</span>
-            <input
-              type="number"
-              value={price}
-              onChange={(e) => setPrice(e.target.value === "" ? "" : Number(e.target.value))}
-            />
-          </label>
-
-          <label>
-            <span>Цена</span>
-            <input type="number" value={finalPrice} readOnly />
-          </label>
-
-          <div className="percent-control">
-            <button
-              type="button"
-              className="percent-btn plus"
-              onClick={() => changePercent(1)}
-            >
-              +
-            </button>
-
-            <div className="percent-value">{percent}%</div>
-
-            <button
-              type="button"
-              className="percent-btn minus"
-              onClick={() => changePercent(-1)}
-            >
-              −
-            </button>
-          </div>
-        </div>
-
-        <div className="quick-discounts">
-          {QUICK_DISCOUNTS.map((value) => (
-            <button
-              key={value}
-              type="button"
-              className={Number(percent) === value ? "quick-discount active" : "quick-discount"}
-              onClick={() => setPercent(value)}
-            >
-              {value > 0 ? `+${value}%` : `${value}%`}
-            </button>
-          ))}
-        </div>
-
-        <div className="total-line">
-          <span>{quantity.pieces} шт × {formatMoney(finalPrice)}</span>
-          <strong>{formatMoney(total)}</strong>
-        </div>
+        <PriceDiscountBlock
+          basePrice={price}
+          finalPrice={finalPrice}
+          percent={percent}
+          total={total}
+          totalLabel={`${quantity.pieces || 0} шт × ${formatMoney(finalPrice)}`}
+          onBasePriceChange={setPrice}
+          onFinalPriceChange={updateFinalPrice}
+          onPercentChange={setPercent}
+        />
       </section>
 
       <button className="add-main" onClick={addCeramic}>

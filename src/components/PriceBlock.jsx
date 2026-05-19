@@ -1,6 +1,4 @@
-import { formatMoney } from "../utils/calculatePrice";
-
-const QUICK_DISCOUNTS = [4, 0, -7, -10, -12];
+import PriceDiscountBlock from "./PriceDiscountBlock";
 
 export default function PriceBlock({
   product,
@@ -11,10 +9,6 @@ export default function PriceBlock({
   isEditing,
   cancelEdit,
 }) {
-  function changePercent(step) {
-    updateProductParam("percent", Number(product.percent || 0) + step);
-  }
-
   function updateFinalPrice(value) {
     if (value === "") {
       updateProductParam("percent", "");
@@ -36,92 +30,31 @@ export default function PriceBlock({
 
   return (
     <section className="card small-card">
-      <div className="inline-inputs price-line">
-        <label>
-          <span>₽</span>
-          <input
-            type="number"
-            value={product.pricePerM3}
-            onChange={(e) =>
-              updateProductParam("pricePerM3", e.target.value === "" ? "" : Number(e.target.value))
-            }
-          />
-        </label>
-
-        <label>
-          <span>Цена</span>
-          <input
-            type="number"
-            value={finalPrice}
-            onChange={(e) => updateFinalPrice(e.target.value)}
-          />
-        </label>
-
-        <div className="percent-control manual-percent-control">
-          <button
-            type="button"
-            className="percent-btn plus"
-            onClick={() => changePercent(1)}
-          >
-            +
-          </button>
-
-          <input
-            className="percent-input"
-            type="number"
-            value={product.percent}
-            onChange={(e) =>
-              updateProductParam("percent", e.target.value === "" ? "" : Number(e.target.value))
-            }
-            placeholder="%"
-          />
-
-          <button
-            type="button"
-            className="percent-btn minus"
-            onClick={() => changePercent(-1)}
-          >
-            −
-          </button>
-        </div>
-      </div>
-
-      <div className="quick-discounts">
-        {QUICK_DISCOUNTS.map((value) => (
-          <button
-            key={value}
-            type="button"
-            className={
-              Number(product.percent) === value
-                ? "quick-discount active"
-                : "quick-discount"
-            }
-            onClick={() => updateProductParam("percent", value)}
-          >
-            {value > 0 ? `+${value}%` : `${value}%`}
-          </button>
-        ))}
-      </div>
-
-      <div className="total-line">
-        <span>Сумма блоков</span>
-        <strong>{formatMoney(productTotal)}</strong>
-      </div>
-
-      {isEditing ? (
-        <div className="edit-buttons">
+      <PriceDiscountBlock
+        basePrice={product.pricePerM3}
+        finalPrice={finalPrice}
+        percent={product.percent}
+        total={productTotal}
+        totalLabel="Сумма блоков"
+        onBasePriceChange={(value) => updateProductParam("pricePerM3", value)}
+        onFinalPriceChange={updateFinalPrice}
+        onPercentChange={(value) => updateProductParam("percent", value)}
+      >
+        {isEditing ? (
+          <div className="edit-buttons">
+            <button className="add-main" onClick={addBlockToCart}>
+              Сохранить изменения
+            </button>
+            <button className="cancel-edit-btn" onClick={cancelEdit}>
+              Отменить изменения
+            </button>
+          </div>
+        ) : (
           <button className="add-main" onClick={addBlockToCart}>
-            Сохранить изменения
+            Добавить блоки
           </button>
-          <button className="cancel-edit-btn" onClick={cancelEdit}>
-            Отменить изменения
-          </button>
-        </div>
-      ) : (
-        <button className="add-main" onClick={addBlockToCart}>
-          Добавить блоки
-        </button>
-      )}
+        )}
+      </PriceDiscountBlock>
     </section>
   );
 }
