@@ -612,7 +612,17 @@ export default function Calculator() {
   }
 
   function clearCart() {
-    setState((prev) => ({ ...prev, cart: [] }));
+    setState((prev) => ({
+      ...prev,
+      cart: [],
+      delivery: {
+        ...prev.delivery,
+        truckQty: 0,
+        manipulatorQty: 0,
+        trailerQty: 0,
+        unloadQty: 0,
+      },
+    }));
   }
 
   function formatNumber(value) {

@@ -5,7 +5,7 @@
 export const DELIVERY_VEHICLES = [
   {
     key: "trailer",
-    title: "Манипулятор с прицепом 20 т",
+    title: "Манипулятор 20 т",
     qtyKey: "trailerQty",
     priceKey: "trailerPrice",
     capacityPallets: 20,

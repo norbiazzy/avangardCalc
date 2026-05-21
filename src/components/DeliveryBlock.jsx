@@ -82,7 +82,7 @@ export default function DeliveryBlock({
       />
 
       <DeliveryRow
-        title="Манипулятор с прицепом 20 т"
+        title="Манипулятор 20 т"
         qty={delivery.trailerQty}
         price={delivery.trailerPrice}
         onQtyChange={(value) => updateDelivery("trailerQty", value)}

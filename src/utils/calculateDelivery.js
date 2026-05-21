@@ -33,7 +33,7 @@ export function getDeliveryItems(delivery) {
   if (Number(delivery.trailerQty || 0) > 0) {
     items.push({
       key: "trailer",
-      title: "Манипулятор с прицепом 20 т",
+      title: "Манипулятор 20 т",
       qty: Number(delivery.trailerQty),
       price: Number(delivery.trailerPrice || 0),
       total: Number(delivery.trailerQty) * Number(delivery.trailerPrice || 0),

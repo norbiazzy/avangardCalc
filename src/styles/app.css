@@ -3727,3 +3727,30 @@ body.modal-open {
     box-shadow: 0 -8px 0 var(--black) !important;
   }
 }
+
+
+/* V27: stable layout — unavailable options stay visible but disabled */
+.segmented button:disabled,
+.width-btn:disabled,
+.option-disabled {
+  opacity: 0.34 !important;
+  background: #f3f4f6 !important;
+  color: #9ca3af !important;
+  border-color: #d1d5db !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  filter: grayscale(0.25);
+}
+
+.segmented button:disabled:hover,
+.width-btn:disabled:hover,
+.option-disabled:hover {
+  transform: none !important;
+  background: #f3f4f6 !important;
+  color: #9ca3af !important;
+}
+
+.segmented button.active:disabled,
+.width-btn.active:disabled {
+  opacity: 0.55 !important;
+}
