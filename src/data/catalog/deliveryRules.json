@@ -1,0 +1,80 @@
+{
+  "description": "Нормы загрузки и перегруз отдельно от товаров и цен. Цена рейса вводится вручную.",
+  "vehicleTypes": [
+    {
+      "key": "truck",
+      "name": "Фура",
+      "normalPalletsDefault": 18,
+      "overloadPalletsDefault": 18
+    },
+    {
+      "key": "manipulator10",
+      "name": "Манипулятор 10 т",
+      "normalPalletsDefault": 8,
+      "overloadPalletsDefault": 10
+    },
+    {
+      "key": "manipulator20",
+      "name": "Манипулятор 20 т",
+      "normalPalletsDefault": 18,
+      "overloadPalletsDefault": 19
+    }
+  ],
+  "densityWeights": {
+    "D400": 400,
+    "D500": 697,
+    "D600": 764
+  },
+  "rules": [
+    {
+      "manufacturerKey": "bonolit",
+      "factory": "DZGI / SK",
+      "density": "D400",
+      "comment": "Если завод указан DZGI / SK, правило применяется к обоим заводам",
+      "truckNormalPallets": 18,
+      "truckOverloadPallets": 18,
+      "manipulator10NormalPallets": 8,
+      "manipulator10OverloadPallets": 10,
+      "manipulator20NormalPallets": 18,
+      "manipulator20OverloadPallets": 19,
+      "overloadPriority": [
+        "manipulator10",
+        "manipulator20",
+        "truck"
+      ]
+    },
+    {
+      "manufacturerKey": "bonolit",
+      "factory": "MY",
+      "density": "D500",
+      "truckNormalPallets": 18,
+      "truckOverloadPallets": 18,
+      "manipulator10NormalPallets": 8,
+      "manipulator10OverloadPallets": 10,
+      "manipulator20NormalPallets": 18,
+      "manipulator20OverloadPallets": 19,
+      "overloadPriority": [
+        "manipulator10",
+        "manipulator20",
+        "truck"
+      ]
+    },
+    {
+      "manufacturerKey": "bonolit",
+      "factory": "MY",
+      "density": "D600",
+      "truckNormalPallets": 18,
+      "truckOverloadPallets": 18,
+      "manipulator10NormalPallets": 8,
+      "manipulator10OverloadPallets": 10,
+      "manipulator20NormalPallets": 18,
+      "manipulator20OverloadPallets": 19,
+      "overloadPriority": [
+        "manipulator10",
+        "manipulator20",
+        "truck"
+      ],
+      "comment": "D600 лучше возить без перегруза"
+    }
+  ]
+}

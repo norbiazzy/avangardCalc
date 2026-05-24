@@ -124,7 +124,7 @@ export default function AutoDeliveryModal({
       "",
       `Товар: ${plan.title}`,
       `Паллеты: ${formatQty(plan.pallets)}`,
-      `Объем: ${formatQty(plan.m3)} м³`,
+      `Объем: ${formatQty(plan.m3)} м3`,
       "",
       "Предварительный вариант:",
       variant ? variant.title : "",
@@ -154,7 +154,7 @@ export default function AutoDeliveryModal({
 
         <div className="auto-delivery-summary">
           <strong>{plan.title}</strong>
-          <span>{formatQty(plan.pallets)} паллет · {formatQty(plan.m3)} м³</span>
+          <span>{formatQty(plan.pallets)} паллет · {formatQty(plan.m3)} м3</span>
         </div>
 
         <div className="auto-delivery-toolbar">

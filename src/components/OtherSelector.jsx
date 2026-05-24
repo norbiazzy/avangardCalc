@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { formatMoney } from "../utils/calculatePrice";
+import PriceDiscountBlock from "./PriceDiscountBlock";
 
 export const OTHER_UNITS = [
   "шт",
-  "м³",
-  "м²",
+  "м3",
+  "м2",
   "м",
   "п.м.",
   "упак.",
@@ -24,8 +24,21 @@ const DEFAULT_FORM = {
   name: "",
   qty: "",
   unit: "шт",
-  price: "",
+  basePrice: "",
+  percent: 0,
 };
+
+function normalizeUnit(unit) {
+  if (unit === "м3") return "м3";
+  if (unit === "м2") return "м2";
+  return unit || "шт";
+}
+
+function calculateFinalPrice(basePrice, percent) {
+  const base = Number(basePrice || 0);
+  const value = base + (base * Number(percent || 0)) / 100;
+  return Math.round(value * 100) / 100;
+}
 
 function parsePastedText(text) {
   const clean = String(text || "").trim().replace(/\s+/g, " ");
@@ -45,8 +58,9 @@ function parsePastedText(text) {
   return {
     name: match[1].trim(),
     qty: match[2].replace(",", "."),
-    unit: match[3] || "шт",
-    price: match[4].replace(",", "."),
+    unit: normalizeUnit(match[3]),
+    basePrice: match[4].replace(",", "."),
+    percent: 0,
   };
 }
 
@@ -59,29 +73,57 @@ export default function OtherSelector({
 }) {
   const [form, setForm] = useState(DEFAULT_FORM);
 
+  const finalPrice = useMemo(() => {
+    return calculateFinalPrice(form.basePrice, form.percent);
+  }, [form.basePrice, form.percent]);
+
+  const total = useMemo(() => {
+    return Math.round(Number(form.qty || 0) * Number(finalPrice || 0) * 100) / 100;
+  }, [form.qty, finalPrice]);
+
   useEffect(() => {
     if (!editingOtherItem) {
       setForm(DEFAULT_FORM);
       return;
     }
 
+    const basePrice = editingOtherItem.price ?? editingOtherItem.basePrice ?? editingOtherItem.finalPrice ?? "";
+
     setForm({
       name: editingOtherItem.name || editingOtherItem.title || "",
       qty: editingOtherItem.qty ?? "",
-      unit: editingOtherItem.unit || "шт",
-      price: editingOtherItem.price ?? "",
+      unit: normalizeUnit(editingOtherItem.unit),
+      basePrice,
+      percent: editingOtherItem.percent ?? 0,
     });
   }, [editingOtherItem?.id]);
-
-  const total = useMemo(() => {
-    return Math.round(Number(form.qty || 0) * Number(form.price || 0) * 100) / 100;
-  }, [form.qty, form.price]);
 
   function update(field, value) {
     setForm((prev) => ({
       ...prev,
       [field]: value,
     }));
+  }
+
+  function updateFinalPrice(value) {
+    if (value === "") {
+      update("percent", "");
+      return;
+    }
+
+    const basePrice = Number(form.basePrice || 0);
+    const nextFinalPrice = Number(value || 0);
+
+    if (!basePrice) {
+      setForm((prev) => ({
+        ...prev,
+        basePrice: nextFinalPrice,
+        percent: 0,
+      }));
+      return;
+    }
+
+    update("percent", +(((nextFinalPrice - basePrice) / basePrice) * 100).toFixed(2));
   }
 
   async function pasteFromClipboard() {
@@ -117,7 +159,7 @@ export default function OtherSelector({
       return;
     }
 
-    if (form.price === "" || Number(form.price) < 0) {
+    if (form.basePrice === "" || Number(form.basePrice) < 0) {
       showToast("Введите цену", "error");
       return;
     }
@@ -129,10 +171,12 @@ export default function OtherSelector({
       name: form.name.trim(),
       qty: Number(form.qty),
       unit: form.unit,
-      price: Number(form.price),
-      finalPrice: Number(form.price),
+      price: Number(form.basePrice),
+      basePrice: Number(form.basePrice),
+      percent: Number(form.percent || 0),
+      finalPrice: Number(finalPrice),
       total,
-      description: `${form.qty} ${form.unit} × ${form.price} ₽`,
+      description: `${form.qty} ${form.unit} × ${finalPrice} ₽`,
     };
 
     if (editingOtherItem) {
@@ -181,7 +225,7 @@ export default function OtherSelector({
         ))}
       </div>
 
-      <div className="other-input-row">
+      <div className="other-input-row other-qty-row">
         <label>
           <span>Количество</span>
           <input
@@ -191,22 +235,19 @@ export default function OtherSelector({
             placeholder="120"
           />
         </label>
-
-        <label>
-          <span>Цена за ед.</span>
-          <input
-            type="number"
-            value={form.price}
-            onChange={(event) => update("price", event.target.value)}
-            placeholder="58"
-          />
-        </label>
-
-        <div className="other-total-box">
-          <span>Сумма</span>
-          <strong>{formatMoney(total)}</strong>
-        </div>
       </div>
+
+      <PriceDiscountBlock
+        title="Цена и скидка"
+        basePrice={form.basePrice}
+        finalPrice={finalPrice}
+        percent={form.percent}
+        total={total}
+        totalLabel="Сумма позиции"
+        onBasePriceChange={(value) => update("basePrice", value)}
+        onFinalPriceChange={updateFinalPrice}
+        onPercentChange={(value) => update("percent", value)}
+      />
 
       {editingOtherItem ? (
         <div className="edit-buttons">

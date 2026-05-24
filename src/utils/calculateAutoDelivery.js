@@ -42,7 +42,7 @@ export function getOrderVolume(cart) {
   return cart.reduce((sum, item) => {
     if (item.type === "block" || item.type === "ceramic") return sum + Number(item.m3 || 0);
     if (item.type === "ublock") return sum + Number(item.volumeM3 || 0) * Number(item.qty || 0);
-    if (item.type === "other" && item.unit === "м³") return sum + Number(item.qty || 0);
+    if (item.type === "other" && item.unit === "м3") return sum + Number(item.qty || 0);
     return sum;
   }, 0);
 }

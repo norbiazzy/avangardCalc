@@ -199,7 +199,7 @@ export default function CeramicSelector({ onAddCeramic, showToast }) {
       {selected && (
         <div className="ceramic-info-line">
           <span>{selected.size}</span>
-          <span>{selected.pcsPerM3} шт/м³</span>
+          <span>{selected.pcsPerM3} шт/м3</span>
           <span>{selected.pcsPerPallet} шт/под</span>
         </div>
       )}

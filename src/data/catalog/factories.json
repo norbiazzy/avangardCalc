@@ -1,0 +1,73 @@
+{
+  "description": "Производители и заводы отдельно от товаров.",
+  "manufacturers": [
+    {
+      "key": "bonolit",
+      "name": "Bonolit",
+      "ready": true,
+      "factories": [
+        {
+          "key": "SK",
+          "name": "SK"
+        },
+        {
+          "key": "DZGI",
+          "name": "DZGI"
+        },
+        {
+          "key": "MY",
+          "name": "MY"
+        }
+      ],
+      "sections": [
+        "block",
+        "additional"
+      ]
+    },
+    {
+      "key": "istkult",
+      "name": "Исткульт",
+      "ready": true,
+      "factories": [
+        {
+          "key": "M",
+          "name": "М"
+        },
+        {
+          "key": "E",
+          "name": "Е"
+        }
+      ],
+      "sections": [
+        "block"
+      ]
+    },
+    {
+      "key": "porotherm",
+      "name": "Поротерм",
+      "ready": true,
+      "factories": [],
+      "sections": [
+        "ceramic"
+      ]
+    },
+    {
+      "key": "gzhel",
+      "name": "Гжель",
+      "ready": false,
+      "factories": [],
+      "sections": [
+        "ceramic"
+      ]
+    },
+    {
+      "key": "lsr",
+      "name": "ЛСР",
+      "ready": false,
+      "factories": [],
+      "sections": [
+        "ceramic"
+      ]
+    }
+  ]
+}

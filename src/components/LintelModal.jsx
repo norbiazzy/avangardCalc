@@ -318,7 +318,7 @@ export default function LintelModal({
               </label>
 
               <label>
-                Цена за м³
+                Цена за м3
                 <input
                   type="number"
                   value={uPricePerM3}

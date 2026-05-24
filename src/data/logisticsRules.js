@@ -2,7 +2,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -76,7 +76,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -150,7 +150,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -224,7 +224,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -298,7 +298,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -372,7 +372,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -446,7 +446,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -520,7 +520,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -594,7 +594,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -668,7 +668,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -742,7 +742,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -816,7 +816,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -890,7 +890,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -964,7 +964,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D500",
     "strength": "B2.5",
     "length": 600,
@@ -1038,7 +1038,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -1223,7 +1223,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -1408,7 +1408,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -1593,7 +1593,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -1778,7 +1778,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -1963,7 +1963,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -2148,7 +2148,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -2333,7 +2333,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -2518,7 +2518,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -2703,7 +2703,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -2888,7 +2888,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -3073,7 +3073,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -3258,7 +3258,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,
@@ -3443,7 +3443,7 @@ export const LOGISTICS_RULES = [
   {
     "manufacturerKey": "bonolit",
     "manufacturer": "Бонолит",
-    "factory": "SK",
+    "factory": "DZGI",
     "density": "D400",
     "strength": "B2.5",
     "length": 625,

@@ -1,0 +1,18 @@
+{
+  "description": "Один товар / размер = одна строка. Этот файл постепенно заменит JS-справочники.",
+  "fields": {
+    "id": "Уникальный ID позиции",
+    "active": "true/false — показывать в калькуляторе",
+    "section": "block / ceramic / other / additional",
+    "type": "gas_block / ceramic_block / lintel / u_block / free_item",
+    "manufacturerKey": "ключ производителя",
+    "factory": "завод",
+    "density": "D400/D500/D600",
+    "strength": "B2.5/B3.5/B5",
+    "length/width/height": "размеры в мм",
+    "unit": "м3 / шт / м2 / м / п.м. / упак.",
+    "palletM3": "объем поддона",
+    "piecesPerPallet": "штук в поддоне",
+    "templates": "шаблоны отображения и копирования"
+  }
+}

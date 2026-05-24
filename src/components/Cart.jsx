@@ -31,7 +31,7 @@ export default function Cart({
     if (item.type === "block") return sum + Number(item.m3 || 0);
     if (item.type === "ceramic") return sum + Number(item.m3 || 0);
     if (item.type === "ublock") return sum + Number(item.volumeM3 || 0) * Number(item.qty || 0);
-    if (item.type === "other" && item.unit === "м³") return sum + Number(item.qty || 0);
+    if (item.type === "other" && item.unit === "м3") return sum + Number(item.qty || 0);
     return sum;
   }, 0);
 
@@ -65,7 +65,7 @@ export default function Cart({
                 </small>
               ) : item.type === "ceramic" ? (
                 <small>
-                  {item.shortTitle} · {item.qty} шт · {item.m3} м³ · {item.pallets} под. · {formatMoney(item.finalPrice)}
+                  {item.shortTitle} · {item.qty} шт · {item.m3} м3 · {item.pallets} под. · {formatMoney(item.finalPrice)}
                 </small>
               ) : item.type === "lintel" ? (
                 <small>
@@ -127,7 +127,7 @@ export default function Cart({
 
       <div className="copy-summary">
         <span>Объем в заказе</span>
-        <strong>{formatQty(volumeTotal)} м³</strong>
+        <strong>{formatQty(volumeTotal)} м3</strong>
       </div>
 
       <div className="copy-summary">

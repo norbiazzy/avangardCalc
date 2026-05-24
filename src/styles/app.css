@@ -3754,3 +3754,14 @@ body.modal-open {
 .width-btn.active:disabled {
   opacity: 0.55 !important;
 }
+
+
+/* V29: Other section uses shared PriceDiscountBlock */
+.other-qty-row {
+  grid-template-columns: minmax(180px, 260px) !important;
+}
+
+.other-card-main .price-discount-card {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}

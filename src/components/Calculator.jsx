@@ -490,8 +490,14 @@ export default function Calculator() {
       id: Date.now(),
       type: "glue",
       title: "Клей 25 кг",
+      shortTitle: "Клей 25 кг",
+      fullTitle: "Клей по газобетону для тонкошовной\nкладки 25 кг",
+      qty: Number(glue.bagsQty),
+      unit: "шт",
+      price: Number(glue.bagPrice),
+      finalPrice: Number(glue.bagPrice),
       description: `${glue.bagsQty} меш. × ${glue.bagPrice} ₽`,
-      total: glue.bagsQty * glue.bagPrice,
+      total: Number(glue.bagsQty) * Number(glue.bagPrice),
     };
 
     setState((prev) => ({ ...prev, cart: [...prev.cart, item] }));
@@ -508,8 +514,14 @@ export default function Calculator() {
       id: Date.now() + 1,
       type: "foam",
       title: "Клей-пена",
+      shortTitle: "Клей-пена",
+      fullTitle: "Клей-пена для газобетона\n750 мл",
+      qty: Number(glue.foamQty),
+      unit: "шт",
+      price: Number(glue.foamPrice),
+      finalPrice: Number(glue.foamPrice),
       description: `${glue.foamQty} бал. × ${glue.foamPrice} ₽`,
-      total: glue.foamQty * glue.foamPrice,
+      total: Number(glue.foamQty) * Number(glue.foamPrice),
     };
 
     setState((prev) => ({ ...prev, cart: [...prev.cart, item] }));
@@ -703,11 +715,15 @@ export default function Calculator() {
     const price = getItemPrice(item);
 
     if (item.type === "block") {
+      const copiedTitle = item.factory === "DZGI"
+        ? item.title.replace("Bonolit ", "Bonolit project ")
+        : item.title;
+
       return [
-        item.title,
+        copiedTitle,
         `${item.pallets} под. по ${item.piecesPerPallet} шт - ${item.pieces} шт`,
         moneyLine(qty, unit, price, item.total),
-      ].join("\n");
+      ].join("\n\n");
     }
 
     if (item.type === "ceramic") {
@@ -716,13 +732,13 @@ export default function Calculator() {
         `${item.pallets} под. по ${item.pcsPerPallet} шт - ${item.qty} шт`,
         `${formatM3(item.m3)} м3`,
         moneyLine(qty, unit, price, item.total),
-      ].join("\n");
+      ].join("\n\n");
     }
 
     return [
-      item.title || item.shortTitle,
+      item.fullTitle || item.title || item.shortTitle,
       moneyLine(qty, unit, price, item.total),
-    ].join("\n");
+    ].join("\n\n");
   }
 
   function getMinimalItemText(item) {
@@ -737,7 +753,7 @@ export default function Calculator() {
       return `${item.shortTitle} - ${moneyLine(qty, unit, price, item.total)}`;
     }
 
-    return `${item.shortTitle || item.title} - ${moneyLine(qty, unit, price, item.total)}`;
+    return `${item.shortTitle || item.title || item.fullTitle} - ${moneyLine(qty, unit, price, item.total)}`;
   }
 
   function makeFullOrderText() {
@@ -746,7 +762,7 @@ export default function Calculator() {
       ...deliveryItems.map((item) => `${item.title}
 ${moneyLine(item.qty, "шт", item.price, item.total)}`),
       `Итого: ${formatNumber(total)} ₽`,
-    ].join("\n");
+    ].join("\n\n");
   }
 
   function makeMinimalOrderText() {
@@ -754,7 +770,7 @@ ${moneyLine(item.qty, "шт", item.price, item.total)}`),
       ...cart.map(getMinimalItemText),
       ...deliveryItems.map((item) => `${item.title} - ${moneyLine(item.qty, "шт", item.price, item.total)}`),
       `Итого: ${formatNumber(total)} ₽`,
-    ].join("\n");
+    ].join("\n\n");
   }
 
   function copyCart(mode = "full") {
