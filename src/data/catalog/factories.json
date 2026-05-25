@@ -54,7 +54,7 @@
     {
       "key": "gzhel",
       "name": "Гжель",
-      "ready": false,
+      "ready": true,
       "factories": [],
       "sections": [
         "ceramic"

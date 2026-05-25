@@ -40,6 +40,7 @@ const defaultState = {
   productType: "block",
   product: {
     ...ALL_BLOCKS[0],
+    factory: "DZGI",
     density: "D500",
     strength: "B3.5",
     m3: 0,
