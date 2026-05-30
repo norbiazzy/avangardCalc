@@ -64,6 +64,8 @@ const defaultState = {
     trailerPrice: 0,
     unloadQty: 0,
     unloadPrice: 0,
+    uncouplingQty: 0,
+    uncouplingPrice: 3000,
   },
   cart: [],
   editingItemId: null,
@@ -72,6 +74,7 @@ const defaultState = {
   toast: null,
   theme: localStorage.getItem("app-theme") || "classic",
   isHistoryOpen: false,
+  isQuickMenuOpen: false,
   orderHistory: [],
   customer: DEFAULT_CUSTOMER,
 };
@@ -94,6 +97,7 @@ export default function Calculator() {
         },
         orderHistory: parsed.orderHistory || [],
         isHistoryOpen: false,
+        isQuickMenuOpen: false,
         toast: null,
   theme: localStorage.getItem("app-theme") || "classic",
       };
@@ -114,6 +118,7 @@ export default function Calculator() {
     isLintelModalOpen,
     toast,
     isHistoryOpen,
+    isQuickMenuOpen,
     orderHistory,
   } = state;
 
@@ -634,6 +639,7 @@ export default function Calculator() {
         manipulatorQty: 0,
         trailerQty: 0,
         unloadQty: 0,
+        uncouplingQty: 0,
       },
     }));
   }
@@ -724,7 +730,7 @@ export default function Calculator() {
         copiedTitle,
         `${item.pallets} под. по ${item.piecesPerPallet} шт - ${item.pieces} шт`,
         moneyLine(qty, unit, price, item.total),
-      ].join("\n\n");
+      ].join("\n");
     }
 
     if (item.type === "ceramic") {
@@ -733,13 +739,13 @@ export default function Calculator() {
         `${item.pallets} под. по ${item.pcsPerPallet} шт - ${item.qty} шт`,
         `${formatM3(item.m3)} м3`,
         moneyLine(qty, unit, price, item.total),
-      ].join("\n\n");
+      ].join("\n");
     }
 
     return [
       item.fullTitle || item.title || item.shortTitle,
       moneyLine(qty, unit, price, item.total),
-    ].join("\n\n");
+    ].join("\n");
   }
 
   function getMinimalItemText(item) {
@@ -757,11 +763,18 @@ export default function Calculator() {
     return `${item.shortTitle || item.title || item.fullTitle} - ${moneyLine(qty, unit, price, item.total)}`;
   }
 
+  function getFullDeliveryText(item) {
+    if (Number(item.qty) === 1) {
+      return `${item.title} = ${formatNumber(item.total)} ₽`;
+    }
+
+    return `${item.title}\n${moneyLine(item.qty, "шт", item.price, item.total)}`;
+  }
+
   function makeFullOrderText() {
     return [
       ...cart.map(getFullItemText),
-      ...deliveryItems.map((item) => `${item.title}
-${moneyLine(item.qty, "шт", item.price, item.total)}`),
+      ...deliveryItems.map(getFullDeliveryText),
       `Итого: ${formatNumber(total)} ₽`,
     ].join("\n\n");
   }
@@ -771,7 +784,7 @@ ${moneyLine(item.qty, "шт", item.price, item.total)}`),
       ...cart.map(getMinimalItemText),
       ...deliveryItems.map((item) => `${item.title} - ${moneyLine(item.qty, "шт", item.price, item.total)}`),
       `Итого: ${formatNumber(total)} ₽`,
-    ].join("\n\n");
+    ].join("\n");
   }
 
   function copyCart(mode = "full") {
@@ -891,6 +904,75 @@ ${moneyLine(item.qty, "шт", item.price, item.total)}`),
         onDeleteOrder={deleteHistoryOrder}
         onClearHistory={clearHistory}
       />
+
+
+      <button
+        type="button"
+        className="mobile-quick-open"
+        onClick={() => setState((prev) => ({ ...prev, isQuickMenuOpen: true }))}
+      >
+        ☰
+      </button>
+
+      {isQuickMenuOpen && (
+        <div
+          className="mobile-quick-backdrop"
+          onClick={() => setState((prev) => ({ ...prev, isQuickMenuOpen: false }))}
+        >
+          <div className="mobile-quick-panel" onClick={(event) => event.stopPropagation()}>
+            <div className="mobile-quick-head">
+              <strong>Быстрые действия</strong>
+              <button
+                type="button"
+                onClick={() => setState((prev) => ({ ...prev, isQuickMenuOpen: false }))}
+              >
+                ×
+              </button>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                copyCart("full");
+                setState((prev) => ({ ...prev, isQuickMenuOpen: false }));
+              }}
+            >
+              Копировать полный заказ
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                copyCart("minimal");
+                setState((prev) => ({ ...prev, isQuickMenuOpen: false }));
+              }}
+            >
+              Копировать минимум
+            </button>
+
+            <button
+              type="button"
+              className="danger"
+              onClick={() => {
+                clearCart();
+                setState((prev) => ({ ...prev, isQuickMenuOpen: false }));
+              }}
+            >
+              Очистить заказ
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                clearCustomer();
+                setState((prev) => ({ ...prev, isQuickMenuOpen: false }));
+              }}
+            >
+              Очистить клиента
+            </button>
+          </div>
+        </div>
+      )}
 
       <Toast message={toast} />
 

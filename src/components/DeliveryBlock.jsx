@@ -97,6 +97,14 @@ export default function DeliveryBlock({
         onPriceChange={(value) => updateDelivery("unloadPrice", value)}
       />
 
+      <DeliveryRow
+        title="Расцепка"
+        qty={delivery.uncouplingQty}
+        price={delivery.uncouplingPrice ?? 3000}
+        onQtyChange={(value) => updateDelivery("uncouplingQty", value)}
+        onPriceChange={(value) => updateDelivery("uncouplingPrice", value)}
+      />
+
       <div className="total-line delivery-total-line">
         <span>Итого доставка</span>
         <strong>{formatMoney(deliveryTotal)}</strong>

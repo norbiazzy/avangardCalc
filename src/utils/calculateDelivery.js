@@ -3,7 +3,8 @@ export function calculateDeliveryTotal(delivery) {
     Number(delivery.truckQty || 0) * Number(delivery.truckPrice || 0) +
     Number(delivery.manipulatorQty || 0) * Number(delivery.manipulatorPrice || 0) +
     Number(delivery.trailerQty || 0) * Number(delivery.trailerPrice || 0) +
-    Number(delivery.unloadQty || 0) * Number(delivery.unloadPrice || 0)
+    Number(delivery.unloadQty || 0) * Number(delivery.unloadPrice || 0) +
+    Number(delivery.uncouplingQty || 0) * Number(delivery.uncouplingPrice || 0)
   );
 }
 
@@ -47,6 +48,16 @@ export function getDeliveryItems(delivery) {
       qty: Number(delivery.unloadQty),
       price: Number(delivery.unloadPrice || 0),
       total: Number(delivery.unloadQty) * Number(delivery.unloadPrice || 0),
+    });
+  }
+
+  if (Number(delivery.uncouplingQty || 0) > 0) {
+    items.push({
+      key: "uncoupling",
+      title: "Расцепка",
+      qty: Number(delivery.uncouplingQty),
+      price: Number(delivery.uncouplingPrice || 0),
+      total: Number(delivery.uncouplingQty) * Number(delivery.uncouplingPrice || 0),
     });
   }
 

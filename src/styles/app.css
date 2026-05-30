@@ -3765,3 +3765,78 @@ body.modal-open {
   margin-top: 8px;
   margin-bottom: 10px;
 }
+
+
+/* V38: mobile quick actions drawer */
+.mobile-quick-open {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mobile-quick-open {
+    display: flex;
+    position: fixed;
+    right: 14px;
+    bottom: 16px;
+    z-index: 9998;
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    border: 2px solid var(--line);
+    background: var(--black);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 900;
+    box-shadow: 4px 4px 0 rgba(0,0,0,.22);
+  }
+
+  .mobile-quick-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(17, 24, 39, .48);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mobile-quick-panel {
+    width: min(330px, 86vw);
+    height: 100vh;
+    background: #fff;
+    color: var(--black);
+    padding: 16px;
+    box-shadow: -10px 0 30px rgba(0,0,0,.22);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobile-quick-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .mobile-quick-head strong {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .mobile-quick-head button,
+  .mobile-quick-panel button {
+    min-height: 54px;
+    border: 2px solid var(--line);
+    background: #f8fafc;
+    color: var(--black);
+    font-weight: 900;
+    border-radius: 14px;
+  }
+
+  .mobile-quick-panel button.danger {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+}
